@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oladayo Ventures Inventory Site</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <!--if any of this area is clicked, chek if user is a guest, if so, deniel access, if 
+                if not, check role, if not understand role ask to loging and redirect to
+                user dashboard, if role is = admin,redirect to admin.html ask login , if login is successful, welcome, if note succesful
+            give trial for 5 time, if trial exhausted, deniel access, for three hours-->
+            <li><a href="#admin">Admin Dashboard</a></li>
+            <li><a href="#cashier">Cashier Dashboard</a></li>
+            <li><a href="#user">User Dashboard</a></li>
+        </ul>
+    </div>
+
+    <!-- Admin Dashboard,  hide this if not admin -->
+    <div id="admin" class="dashboard">
+        <h1>Admin Dashboard</h1>
+        <form id="add-product-form">
+            <input type="text" id="product-name" placeholder="Product Name" required>
+            <input type="text" id="product-category" placeholder="Category" required>
+            <input type="text" id="product-size" placeholder="Size" required>
+            <input type="number" id="product-price" placeholder="Price" required>
+            <button type="submit">Add Product</button>
+        </form>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <h2>Top Selling Products</h2>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Sales</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <h2>Cashier Performance</h2>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Cashier</th>
+                    <th>Performance</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <h2>Cashier Activity</h2>
+        <table class="activity-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Activity</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Cashier Dashboard hide this if not cashier -->
+    <div id="cashier" class="dashboard">
+        <h1>Cashier Dashboard</h1>
+        <form id="search-product-form">
+            <input type="text" id="search-category" placeholder="Category">
+            <input type="text" id="search-size" placeholder="Size">
+            <input type="number" id="search-price-min" placeholder="Min Price">
+            <input type="number" id="search-price-max" placeholder="Max Price">
+            <button type="submit">Search Product</button>
+        </form>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button onclick="printReceipt()">Print Receipt</button>
+    </div>
+
+    <!-- User Dashboard show this if not admin and cashier-->
+    <div id="user" class="dashboard">
+        <h1>User Dashboard</h1>
+        <form id="search-product-form">
+            <input type="text" id="search-category" placeholder="Category">
+            <input type="text" id="search-size" placeholder="Size">
+            <input type="number" id="search-price-min" placeholder="Min Price">
+            <input type="number" id="search-price-max" placeholder="Max Price">
+            <button type="submit">Search Product</button>
+        </form>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+<!--creat iframe tha can inport products from this id "productList" in marketing.html -->
+<!--creat iframe tha can inport slide from this id "slideshow" in market.html -->
+<!--creat iframe tha can inport slide from this id "slideshow" in market.html -->
+<!--creat iframe tha can inport slide from this id "slideshow" in market.html -->
+<script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/cashier.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Dashboard</title>
+    <!-- Add CSS links for professional styling -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add a link to a CSS framework like Bootstrap for additional styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Market Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Admin Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cashier.html">Cashier Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="moderator.html">Moderator Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container mt-5">
+        <div id="dashboardContent">
+            <!-- Content will be loaded based on user role -->
+        </div>
+    </div>
+
+    <!-- Add Store Modal -->
+    <div class="modal fade" id="addStoreModal" tabindex="-1" aria-labelledby="addStoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addStoreModalLabel">Create a New Store</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addStoreForm">
+                        <div class="form-group">
+                            <label for="storeName">Store Name</label>
+                            <input type="text" class="form-control" id="storeName" placeholder="Enter store name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="storeAddress">Store Address</label>
+                            <input type="text" class="form-control" id="storeAddress" placeholder="Enter store address" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Store</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include JS libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fetch user role from localStorage (just a placeholder, implement proper authentication in production)
+            const userRole = localStorage.getItem('userRole');
+
+            // Load dashboard content based on user role
+            const dashboardContent = document.getElementById('dashboardContent');
+            if (userRole === 'admin') {
+                dashboardContent.innerHTML = `
+                    <h1>Admin Dashboard</h1>
+                    <button class="btn btn-success mb-3" data-toggle="modal" data-target="#addStoreModal">Create Store</button>
+                    <div id="storeList"></div>
+                `;
+            } else if (userRole === 'cashier') {
+                dashboardContent.innerHTML = `
+                    <h1>Cashier Dashboard</h1>
+                    <div id="storeList"></div>
+                `;
+            } else if (userRole === 'moderator') {
+                dashboardContent.innerHTML = `
+                    <h1>Moderator Dashboard</h1>
+                    <div id="storeList"></div>
+                `;
+            } else {
+                dashboardContent.innerHTML = `<h1>Unauthorized Access</h1>`;
+            }
+
+            // Load stores (simulated for this example)
+            const stores = [
+                { id: 1, name: 'Store 1', address: '123 Market St' },
+                { id: 2, name: 'Store 2', address: '456 Commerce Blvd' }
+            ];
+            const storeList = document.getElementById('storeList');
+            stores.forEach(store => {
+                const storeElement = document.createElement('div');
+                storeElement.className = 'store-item';
+                storeElement.innerHTML = `
+                    <h4>${store.name}</h4>
+                    <p>${store.address}</p>
+                `;
+                storeList.appendChild(storeElement);
+            });
+
+            // Handle store creation form submission
+            const addStoreForm = document.getElementById('addStoreForm');
+            addStoreForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const storeName = document.getElementById('storeName').value;
+                const storeAddress = document.getElementById('storeAddress').value;
+
+                const newStore = { id: Date.now(), name: storeName, address: storeAddress };
+
+                // Simulate adding store to backend and refreshing the list
+                stores.push(newStore);
+                const storeElement = document.createElement('div');
+                storeElement.className = 'store-item';
+                storeElement.innerHTML = `
+                    <h4>${newStore.name}</h4>
+                    <p>${newStore.address}</p>
+                `;
+                storeList.appendChild(storeElement);
+
+                // Reset the form and close the modal
+                addStoreForm.reset();
+                $('#addStoreModal').modal('hide');
+            });
+        });
+    </script>
+
+</body>
+</html>
